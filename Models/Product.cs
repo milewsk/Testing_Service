@@ -9,7 +9,8 @@ namespace Testing_Service.Models
 {
     public class Product
     {
-        public int id { get; set; }
+        [JsonPropertyName("id")]
+        public string Id { get; set; }
 
         [JsonPropertyName("maker")]
         public string Maker { get; set; }
@@ -23,7 +24,7 @@ namespace Testing_Service.Models
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
-        [JsonPropertyName("descripton")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
         public override string ToString() => JsonSerializer.Serialize<Product>(this);
