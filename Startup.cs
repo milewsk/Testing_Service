@@ -8,7 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Testing_Service.Context;
 using Testing_Service.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Testing_Service
 {
@@ -26,6 +28,11 @@ namespace Testing_Service
         {
             services.AddRazorPages();
             services.AddTransient<JsonFileProductService>();
+
+            services.AddDbContext<ProductContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("ServiceDB"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

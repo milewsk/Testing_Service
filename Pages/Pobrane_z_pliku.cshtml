@@ -20,16 +20,16 @@
                 <tbody >
                     @foreach (var product in Model.Products)
                     {
-                        <tr  >
-                            <td class="align_center">@Html.DisplayFor(modelproduct => product.Maker)</td>
+                        <tr>
+                            <td>@Html.DisplayFor(modelproduct => product.Maker)</td>
                         
-                            <td class="align_center"><img width="200px" height="200px" src="@Html.DisplayFor(modelproduct => product.Image)" /></td>
+                            <td ><img width="200px" height="200px" src="@Html.DisplayFor(modelproduct => product.Image)" /></td>
                        
-                            <td class="align_center"><a type="button" class="btn-info p-2 border border-info" href="@Html.DisplayFor(modelproduct => product.Url)">Link</a></td>
+                            <td ><a type="button" class="btn-info p-2 border border-info" href="@Html.DisplayFor(modelproduct => product.Url)">Link</a></td>
                        
-                            <td class="align_center">@Html.DisplayFor(modelproduct => product.Title)</td>
+                            <td >@Html.DisplayFor(modelproduct => product.Title)</td>
                        
-                            <td class="align_center">@Html.DisplayFor(modelproduct => product.Description)</td>
+                            <td >@Html.DisplayFor(modelproduct => product.Description)</td>
                         </tr>
                     }
                 </tbody>

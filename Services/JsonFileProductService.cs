@@ -8,6 +8,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using Testing_Service.Models;
 
+
 namespace Testing_Service.Services
 {
     public class JsonFileProductService
@@ -24,17 +25,25 @@ namespace Testing_Service.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        
+
         public IEnumerable<Product> GetProducts()
         {
 
-            using (var jsonFileReader = File.OpenText(JsonFileName)) 
+            using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
+                return System.Text.Json.JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
+
                         PropertyNameCaseInsensitive = true
                     });
+                //return JsonConvert.DeserializeObject<Product[]>(jsonFileReader.ReadToEnd(),
+                //  new JsonSerializerOptions
+                //  {
 
+                //      PropertyNameCaseInsensitive = true
+                //  });
 
             }
         }
