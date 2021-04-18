@@ -31,7 +31,7 @@ namespace Testing_Service
 
             services.AddDbContext<ProductContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("ServiceDB"));
+                options.UseSqlServer(Configuration.GetConnectionString("ServicesDB"));
             });
         }
 

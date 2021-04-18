@@ -2,3 +2,42 @@
 @model Testing_Service.Pages.Pobrane_z_bazyModel
 @{
 }
+
+
+<body>
+    <div>
+        <h1>Produkty wypisane z Bazy</h1>
+    </div>
+
+    <div>
+        <table class="table text-center ">
+            <thead>
+            <th> @Html.DisplayNameFor(model => model.product1.Maker)</th>
+            <th> @Html.DisplayNameFor(model => model.product1.Image)</th>
+            <th> @Html.DisplayNameFor(model => model.product1.Url)</th>
+            <th> @Html.DisplayNameFor(model => model.product1.Title)</th>
+            <th> @Html.DisplayNameFor(model => model.product1.Description)</th>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelproduct => product.Maker)</td>
+
+                        <td><img width="200px" height="200px" src="@Html.DisplayFor(modelproduct => product.Image)" /></td>
+
+                        <td><a type="button" class="btn-info p-2 border border-info" href="@Html.DisplayFor(modelproduct => product.Url)">Link</a></td>
+
+                        <td>@Html.DisplayFor(modelproduct => product.Title)</td>
+
+                        <td>@Html.DisplayFor(modelproduct => product.Description)</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+</body>
