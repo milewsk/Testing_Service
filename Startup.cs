@@ -49,6 +49,7 @@ namespace Testing_Service
                 app.UseHsts();
             }
 
+            app.CheckBrowserMiddlewere();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

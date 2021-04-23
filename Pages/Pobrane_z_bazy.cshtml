@@ -18,20 +18,20 @@
             <th> @Html.DisplayNameFor(model => model.product1.Title)</th>
             <th> @Html.DisplayNameFor(model => model.product1.Description)</th>
             </thead>
-            <tbody>
-                @foreach (var product in Model.Products)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelproduct => product.Maker)</td>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelproduct => product.Maker)</td>
 
-                        <td><img width="200px" height="200px" src="@Html.DisplayFor(modelproduct => product.Image)" /></td>
+                            <td><img width="200px" height="200px" src="@Html.DisplayFor(modelproduct => product.Image)" /></td>
 
-                        <td><a type="button" class="btn-info p-2 border border-info" href="@Html.DisplayFor(modelproduct => product.Url)">Link</a></td>
+                            <td><a type="button" class="btn-info p-2 border border-info" href="@Html.DisplayFor(modelproduct => product.Url)">Link</a></td>
 
-                        <td>@Html.DisplayFor(modelproduct => product.Title)</td>
+                            <td>@Html.DisplayFor(modelproduct => product.Title)</td>
 
-                        <td>@Html.DisplayFor(modelproduct => product.Description)</td>
-                    </tr>
+                            <td>@Html.DisplayFor(modelproduct => product.Description)</td>
+                        </tr>
                 }
             </tbody>
 

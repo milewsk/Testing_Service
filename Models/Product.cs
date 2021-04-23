@@ -14,6 +14,8 @@ namespace Testing_Service.Models
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
+        //dodać oddzielną własność dla id z json i jej nie mapować
+
         [MaxLength(40)]
         [JsonPropertyName("maker")]
         public string Maker { get; set; }
