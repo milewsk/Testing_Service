@@ -49,13 +49,15 @@ namespace Testing_Service
                 app.UseHsts();
             }
 
-            app.CheckBrowserMiddlewere();
+           
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.CheckBrowserMiddlewere();
 
             app.UseEndpoints(endpoints =>
             {

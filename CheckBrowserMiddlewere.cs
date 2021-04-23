@@ -28,7 +28,7 @@ namespace Testing_Service
 
             }*/
             
-                var dataAbout = context.Request.Headers["User-Agent"];
+                var dataAbout = context.Request.Headers["User-Agent"].ToString();
                 var chi_cha = context.Request.Headers["sec-ch-ua"].ToString();
                 char[] spliter = { ';', ',' };
                 string[] table_string = chi_cha.Split(spliter);
@@ -36,7 +36,7 @@ namespace Testing_Service
 
                 foreach (string str in table_string)
                 {
-                    if (str.Contains("IE") || str.Contains("EdgeChromium") || str.Contains("Edge") || (table_string.Length == 1))
+                    if (str.Contains("IE") || str.Contains("EdgeChromium") || str.Contains("Edge") || dataAbout.Contains("Trident"))
                     {
                         searching++;
 
@@ -44,18 +44,14 @@ namespace Testing_Service
                 }
 
             if (searching > 0)
-            {
-                // context.Response.Redirect("/browser");
+            {      
                  context.Response.WriteAsync("YOU DONT HAVE GOOD BROWSER");
-                  return _next(context);
-
+                 return _next(context);  
             }
             else
             {
-
                 context.Response.WriteAsync($"<p>Your user-agent: {dataAbout}</p>");
                 context.Response.WriteAsync($"<p>Your Browser: {table_string[0]}</p>");
-
                 return _next(context);
 
             }
