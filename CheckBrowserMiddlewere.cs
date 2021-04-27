@@ -51,7 +51,9 @@ namespace Testing_Service
             else
             {
                 context.Response.WriteAsync($"<p>Your user-agent: {dataAbout}</p>");
-                context.Response.WriteAsync($"<p>Your Browser: {table_string[0]}</p>");
+
+                if (dataAbout.Contains("Firefox")) { context.Response.WriteAsync($"<p>Your Browser: Firefox</p>"); }
+                else { context.Response.WriteAsync($"<p>Your Browser: {table_string[0]}</p>"); }
                 return _next(context);
 
             }
